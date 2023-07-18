@@ -1,0 +1,24 @@
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
+.videoControls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: none;
+}
+
+.videoControls button {
+  margin: 5px;
+  background-color: bisque;
+}
+
+.red-icon {
+  color: red;
+}
+
+.fullscreen-animation {
+  transform: scale(1.5);
+  transition: transform 0.3s ease-in-out;
+}
