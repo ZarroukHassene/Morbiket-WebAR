@@ -31,10 +31,10 @@ document.addEventListener("DOMContentLoaded", function () {
     videoControls.style.display = "none";
     video1.pause();
 
-    if (video1.src != "http://localhost:5173/assets/videos/1_sekou.mp4") {
+    if (video1.src != "http://127.0.0.1:5500/assets/videos/1_sekou.mp4") {
       video1.setAttribute(
         "src",
-        "http://localhost:5173/assets/videos/1_sekou.mp4"
+        "http://127.0.0.1:5500/assets/videos/1_sekou.mp4"
       );
     }
   });
@@ -48,10 +48,10 @@ document.addEventListener("DOMContentLoaded", function () {
     videoControls.style.display = "none";
     video2.pause();
 
-    if (video2.src != "http://localhost:5173/assets/videos/2_naim.mp4") {
+    if (video2.src != "http://127.0.0.1:5500/assets/videos/2_naim.mp4") {
       video2.setAttribute(
         "src",
-        "http://localhost:5173/assets/videos/2_naim.mp4"
+        "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
       );
     }
   });
@@ -64,10 +64,10 @@ document.addEventListener("DOMContentLoaded", function () {
   marker3.addEventListener("markerLost", function () {
     videoControls.style.display = "none";
     video3.pause();
-    if (video3.src != "http://localhost:5173/assets/videos/3_juliette.mp4") {
+    if (video3.src != "http://127.0.0.1:5500/assets/videos/3_juliette.mp4") {
       video3.setAttribute(
         "src",
-        "http://localhost:5173/assets/videos/3_juliette.mp4"
+        "http://127.0.0.1:5500/assets/videos/3_juliette.mp4"
       );
     }
   });
@@ -90,28 +90,28 @@ document.addEventListener("DOMContentLoaded", function () {
       video1.pause();
       video1.currentTime = 0;
       if (
-        videoAsset.src === "http://localhost:5173/assets/videos/1_sekou.mp4"
+        videoAsset.src === "http://127.0.0.1:5500/assets/videos/1_sekou.mp4"
       ) {
         console.log(videoAsset.src);
         videoAsset.setAttribute(
           "src",
-          "http://localhost:5173/assets/videos/3_juliette.mp4"
+          "http://127.0.0.1:5500/assets/videos/3_juliette.mp4"
         );
       } else if (
-        videoAsset.src === "http://localhost:5173/assets/videos/3_juliette.mp4"
+        videoAsset.src === "http://127.0.0.1:5500/assets/videos/3_juliette.mp4"
       ) {
         console.log(videoAsset.src);
         videoAsset.setAttribute(
           "src",
-          "http://localhost:5173/assets/videos/2_naim.mp4"
+          "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
         );
       } else if (
-        videoAsset.src === "http://localhost:5173/assets/videos/2_naim.mp4"
+        videoAsset.src === "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
       ) {
         console.log(videoAsset.src);
         videoAsset.setAttribute(
           "src",
-          "http://localhost:5173/assets/videos/1_sekou.mp4"
+          "http://127.0.0.1:5500/assets/videos/1_sekou.mp4"
         );
       }
 
@@ -123,28 +123,28 @@ document.addEventListener("DOMContentLoaded", function () {
       video2.pause();
       video2.currentTime = 0;
       if (
-        videoAsset.src === "http://localhost:5173/assets/videos/1_sekou.mp4"
+        videoAsset.src === "http://127.0.0.1:5500/assets/videos/1_sekou.mp4"
       ) {
         console.log(videoAsset.src);
         videoAsset.setAttribute(
           "src",
-          "http://localhost:5173/assets/videos/3_juliette.mp4"
+          "http://127.0.0.1:5500/assets/videos/3_juliette.mp4"
         );
       } else if (
-        videoAsset.src === "http://localhost:5173/assets/videos/3_juliette.mp4"
+        videoAsset.src === "http://127.0.0.1:5500/assets/videos/3_juliette.mp4"
       ) {
         console.log(videoAsset.src);
         videoAsset.setAttribute(
           "src",
-          "http://localhost:5173/assets/videos/2_naim.mp4"
+          "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
         );
       } else if (
-        videoAsset.src === "http://localhost:5173/assets/videos/2_naim.mp4"
+        videoAsset.src === "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
       ) {
         console.log(videoAsset.src);
         videoAsset.setAttribute(
           "src",
-          "http://localhost:5173/assets/videos/1_sekou.mp4"
+          "http://127.0.0.1:5500/assets/videos/1_sekou.mp4"
         );
       }
 
@@ -156,28 +156,28 @@ document.addEventListener("DOMContentLoaded", function () {
       video3.pause();
       video3.currentTime = 0;
       if (
-        videoAsset.src === "http://localhost:5173/assets/videos/1_sekou.mp4"
+        videoAsset.src === "http://127.0.0.1:5500/assets/videos/1_sekou.mp4"
       ) {
         console.log(videoAsset.src);
         videoAsset.setAttribute(
           "src",
-          "http://localhost:5173/assets/videos/3_juliette.mp4"
+          "http://127.0.0.1:5500/assets/videos/3_juliette.mp4"
         );
       } else if (
-        videoAsset.src === "http://localhost:5173/assets/videos/3_juliette.mp4"
+        videoAsset.src === "http://127.0.0.1:5500/assets/videos/3_juliette.mp4"
       ) {
         console.log(videoAsset.src);
         videoAsset.setAttribute(
           "src",
-          "http://localhost:5173/assets/videos/2_naim.mp4"
+          "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
         );
       } else if (
-        videoAsset.src === "http://localhost:5173/assets/videos/2_naim.mp4"
+        videoAsset.src === "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
       ) {
         console.log(videoAsset.src);
         videoAsset.setAttribute(
           "src",
-          "http://localhost:5173/assets/videos/1_sekou.mp4"
+          "http://127.0.0.1:5500/assets/videos/1_sekou.mp4"
         );
       }
 
@@ -193,28 +193,28 @@ document.addEventListener("DOMContentLoaded", function () {
       video1.pause();
       video1.currentTime = 0;
       if (
-        videoAsset.src === "http://localhost:5173/assets/videos/1_sekou.mp4"
+        videoAsset.src === "http://127.0.0.1:5500/assets/videos/1_sekou.mp4"
       ) {
         console.log(videoAsset.src);
         videoAsset.setAttribute(
           "src",
-          "http://localhost:5173/assets/videos/2_naim.mp4"
+          "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
         );
       } else if (
-        videoAsset.src === "http://localhost:5173/assets/videos/3_juliette.mp4"
+        videoAsset.src === "http://127.0.0.1:5500/assets/videos/3_juliette.mp4"
       ) {
         console.log(videoAsset.src);
         videoAsset.setAttribute(
           "src",
-          "http://localhost:5173/assets/videos/1_sekou.mp4"
+          "http://127.0.0.1:5500/assets/videos/1_sekou.mp4"
         );
       } else if (
-        videoAsset.src === "http://localhost:5173/assets/videos/2_naim.mp4"
+        videoAsset.src === "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
       ) {
         console.log(videoAsset.src);
         videoAsset.setAttribute(
           "src",
-          "http://localhost:5173/assets/videos/3_juliette.mp4"
+          "http://127.0.0.1:5500/assets/videos/3_juliette.mp4"
         );
       }
 
@@ -226,28 +226,28 @@ document.addEventListener("DOMContentLoaded", function () {
       video2.pause();
       video2.currentTime = 0;
       if (
-        videoAsset.src === "http://localhost:5173/assets/videos/1_sekou.mp4"
+        videoAsset.src === "http://127.0.0.1:5500/assets/videos/1_sekou.mp4"
       ) {
         console.log(videoAsset.src);
         videoAsset.setAttribute(
           "src",
-          "http://localhost:5173/assets/videos/2_naim.mp4"
+          "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
         );
       } else if (
-        videoAsset.src === "http://localhost:5173/assets/videos/3_juliette.mp4"
+        videoAsset.src === "http://127.0.0.1:5500/assets/videos/3_juliette.mp4"
       ) {
         console.log(videoAsset.src);
         videoAsset.setAttribute(
           "src",
-          "http://localhost:5173/assets/videos/1_sekou.mp4"
+          "http://127.0.0.1:5500/assets/videos/1_sekou.mp4"
         );
       } else if (
-        videoAsset.src === "http://localhost:5173/assets/videos/2_naim.mp4"
+        videoAsset.src === "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
       ) {
         console.log(videoAsset.src);
         videoAsset.setAttribute(
           "src",
-          "http://localhost:5173/assets/videos/3_juliette.mp4"
+          "http://127.0.0.1:5500/assets/videos/3_juliette.mp4"
         );
       }
 
@@ -259,28 +259,28 @@ document.addEventListener("DOMContentLoaded", function () {
       video3.pause();
       video3.currentTime = 0;
       if (
-        videoAsset.src === "http://localhost:5173/assets/videos/1_sekou.mp4"
+        videoAsset.src === "http://127.0.0.1:5500/assets/videos/1_sekou.mp4"
       ) {
         console.log(videoAsset.src);
         videoAsset.setAttribute(
           "src",
-          "http://localhost:5173/assets/videos/2_naim.mp4"
+          "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
         );
       } else if (
-        videoAsset.src === "http://localhost:5173/assets/videos/3_juliette.mp4"
+        videoAsset.src === "http://127.0.0.1:5500/assets/videos/3_juliette.mp4"
       ) {
         console.log(videoAsset.src);
         videoAsset.setAttribute(
           "src",
-          "http://localhost:5173/assets/videos/1_sekou.mp4"
+          "http://127.0.0.1:5500/assets/videos/1_sekou.mp4"
         );
       } else if (
-        videoAsset.src === "http://localhost:5173/assets/videos/2_naim.mp4"
+        videoAsset.src === "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
       ) {
         console.log(videoAsset.src);
         videoAsset.setAttribute(
           "src",
-          "http://localhost:5173/assets/videos/3_juliette.mp4"
+          "http://127.0.0.1:5500/assets/videos/3_juliette.mp4"
         );
       }
 
