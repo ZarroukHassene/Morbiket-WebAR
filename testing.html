@@ -7,22 +7,12 @@
 
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
 
-    <script>
-      AFRAME.registerComponent("color-on-hover", {
-        init: function () {
-          var wrapper = this.el;
-          var redBox = wrapper.querySelector(".redbox");
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
 
-          wrapper.addEventListener("mouseenter", function () {
-            redBox.setAttribute("color", "blue");
-          });
-
-          wrapper.addEventListener("mouseleave", function () {
-            redBox.setAttribute("color", "red");
-          });
-        },
-      });
-    </script>
+   
 
     <style>
       html,
@@ -41,33 +31,68 @@
         background-color: white;
         z-index: 9999;
       }
+      .nextButton {
+        position: absolute;
+        top: calc((100vh / 2.7));
+        right: calc((100vw / 2.8));
+        background-color: green;
+        border: none;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+        border: 1px solid black;
+      }
+      .nextButton:hover {
+        background-color: greenyellow;
+      }
+      #nextIcon {
+        font-size: 23px;
+        margin-left: -2px;
+      }
+      .hide {
+        display: none;
+      }
+
+      #nextButton2 {
+        top: calc((100vh / 3.5));
+        right: calc((100vw / 2.9));
+      }
+      #nextButton3 {
+        top: calc((100vh / 4.7));
+        right: calc((100vw / 2.55555));
+      }
     </style>
   </head>
   <body>
     <div id="arjsScene">
       <a-scene
+        id="scene"
         embedded
         arjs="sourceType: webcam; debugUIEnabled: false; changeMatrixMode: cameraTransform;"
         style="width: 100%; height: 100%"
         renderer="logarithmicDepthBuffer: true"
       >
+        <a-camera id="camera"></a-camera>
         <a-assets>
           <a-asset-item
             id="kids"
             responce-type="arraybuffer"
             src="/assets/3d models/kids.glb"
           ></a-asset-item>
+          <img id="sekou" src="/assets/images/500x500_sekou.jpg" />
+          <img id="naim" src="/assets/images/500x500_naim.jpg" />
         </a-assets>
 
-        <a-triangle
-          color="white"
-          vertex-c="1 -1 0"
-          material=""
-          geometry=""
-          rotation="0 0 -84.52731760006009"
-          position="-0.203 2.90388 -14.56218"
-        ></a-triangle>
-        <a-entity position="0 3.78663 -15">
+        <a-entity id="firstPopup" position="0 3.78663 -15">
+          <a-triangle
+            color="white"
+            vertex-c="1 -1 0"
+            material=""
+            geometry=""
+            rotation="0 0 -84.52731760006009"
+            position="-0.203 -0.655 -14.56218"
+          ></a-triangle>
           <a-box
             position="0 0 0"
             color="white"
@@ -78,21 +103,186 @@
           ></a-box>
           <a-entity
             position="0 1 0"
-            text="value: Hello Kids let's start ; align: center; color: black; shader: msdf; depthTest: false"
+            text="value: Hello Kids we're going ; align: center; color: black; shader: msdf; depthTest: false"
             scale="10 10 10"
           ></a-entity>
-           <a-entity
+          <a-entity
             position="0 0.3 0"
-            text="value: Playing together  ; align: center; color: black; shader: msdf; depthTest: false"
+            text="value: to tell you a little story  ; align: center; color: black; shader: msdf; depthTest: false"
+            scale="10 10 10"
+          ></a-entity>
+          <a-entity
+            position="0 -0.4 0"
+            text="value: about us  ; align: center; color: black; shader: msdf; depthTest: false"
             scale="10 10 10"
           ></a-entity>
         </a-entity>
+
         <a-entity
+          id="secondPopup"
+          position="-5 0.7 -15"
+          scale="0.5 0.5 1"
+          rotation="5 0 0"
+          visible="false"
+        >
+          <a-triangle
+            color="white"
+            vertex-c="1 -1 0"
+            material=""
+            geometry=""
+            rotation=""
+            position="2.625 0.15647 -0.35687"
+          ></a-triangle>
+          <a-box
+            position="0 0 0"
+            color="white"
+            scale="5.25733 2.86535 1"
+            material="color: #ffffff; emissive: #000000; wireframeLinewidth: 9.32; depthTest: false"
+            geometry=""
+            rotation="0 0.01 0"
+          ></a-box>
+          <a-entity
+            position="0 1 0"
+            text="value: Let's start with Sekou ; align: center; color: black; shader: msdf; depthTest: false"
+            scale="10 10 10"
+          ></a-entity>
+          <a-entity
+            position="0 0.3 0"
+            text="value:Scan Sikou image to ; align: center; color: black; shader: msdf; depthTest: false"
+            scale="10 10 10"
+          ></a-entity>
+          <a-entity
+            position="0 -0.4 0"
+            text="value: start the story ; align: center; color: black; shader: msdf; depthTest: false"
+            scale="10 10 10"
+          ></a-entity>
+
+          <a-image src="#sekou" position="-2.2 -0.7 0"> </a-image>
+        </a-entity>
+
+        <a-entity
+          id="thirdPopup"
+          position="4.05498 0.20609 -15"
+          scale="0.25 0.25 1"
+          rotation="9.670 0 0"
+          visible="false"
+        >
+          <a-triangle
+            color="white"
+            vertex-c="1 -1 0"
+            material=""
+            geometry=""
+            rotation="0 0 239.99999999999997"
+            position="-2.868 0.15647 -0.35687"
+          ></a-triangle>
+          <a-box
+            position="0 0 0"
+            color="white"
+            scale="5.25733 2.86535 1"
+            material="color: #ffffff; emissive: #000000; wireframeLinewidth: 9.32; depthTest: false"
+            geometry=""
+            rotation="0 0.01 0"
+          ></a-box>
+          <a-entity
+            position="0 1 0"
+            text="value: And now lets move on ; align: center; color: black; shader: msdf; depthTest: false"
+            scale="10 10 10"
+          ></a-entity>
+          <a-entity
+            position="0 0.3 0"
+            text="value:to Naim,Scan his image ; align: center; color: black; shader: msdf; depthTest: false"
+            scale="10 10 10"
+          ></a-entity>
+          <a-entity
+            position="0 -0.4 0"
+            text="value: to start his story ; align: center; color: black; shader: msdf; depthTest: false"
+            scale="10 10 10"
+          ></a-entity>
+
+          <a-image src="#naim" position="-2.2 -0.7 0"> </a-image>
+        </a-entity>
+
+        <a-entity
+          id="kidsModel"
           gltf-model="#kids"
           position="0 -3 -15"
           animation-mixer="clip:idle d"
-        ></a-entity>
+        >
+        </a-entity>
       </a-scene>
     </div>
+    <button id="nextButton" class="nextButton hide">
+      <i id="nextIcon" class="material-icons">arrow_forward_ios</i>
+    </button>
+    <button id="nextButton2" class="nextButton hide">
+      <i id="nextIcon" class="material-icons">arrow_forward_ios</i>
+    </button>
+
+    <button id="nextButton3" class="nextButton hide">
+      <i id="nextIcon" class="material-icons">arrow_forward_ios</i>
+    </button>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const camera = document.getElementById("camera");
+        const kids = document.getElementById("kidsModel");
+
+        const assets = document.querySelector("a-assets");
+        const firstPopup = document.getElementById("firstPopup");
+        const secondPopup = document.getElementById("secondPopup");
+        const thirdPopup = document.getElementById("thirdPopup");
+        const nextButton = document.getElementById("nextButton");
+        const nextButton2 = document.getElementById("nextButton2");
+        const nextButton3 = document.getElementById("nextButton3");
+        assets.addEventListener("loaded", () => {
+          nextButton.classList.remove("hide");
+        });
+
+        // Add a click event listener to the button
+        nextButton.addEventListener("click", () => {
+          // Set the animation attributes when the button is clicked
+          camera.setAttribute(
+            "animation",
+            "property: rotation; to: 0 0.11459155902616465 0"
+          );
+          camera.setAttribute(
+            "animation__2",
+            "property: position; to: -4.77957 -0.72 -8.75279"
+          );
+          kids.setAttribute("animation", "property: rotation; to: 0 -21.71 0");
+          kids.setAttribute(
+            "animation__2",
+            "property: position; to: 0 -3 -14.15818"
+          );
+          nextButton.classList.add("hide");
+          firstPopup.setAttribute("visible", "false");
+          secondPopup.setAttribute("visible", "true");
+        });
+
+        ////////////////////
+
+        nextButton2.addEventListener("click", () => {
+          camera.setAttribute("animation", "property: rotation; to: 0 0 0");
+          camera.setAttribute(
+            "animation__2",
+            "property: position; to: 4.195 -1.019 -10.3361"
+          );
+          kids.setAttribute("animation", "property: rotation; to: 0 21.71 0");
+          kids.setAttribute("animation__2", "property: position; to: 0 -3 -15");
+          nextButton2.classList.add("hide");
+          secondPopup.setAttribute("visible", "false");
+          thirdPopup.setAttribute("visible", "true");
+        });
+
+        camera.addEventListener("animationcomplete", function (event) {
+          if (secondPopup.getAttribute("visible") == true) {
+            console.log("hello");
+            nextButton2.classList.remove("hide");
+          }
+          if (thirdPopup.getAttribute("visible") == true) {
+            nextButton3.classList.remove("hide");
+          }
+        });
+      });
+    </script>
   </body>
 </html>
