@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <!-- include ar.js for A-Frame -->
     <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
 
     <script>
       AFRAME.registerComponent("color-on-hover", {
@@ -31,6 +34,13 @@
         padding: 0;
         overflow: hidden;
       }
+
+      .dialog {
+        width: 500px;
+        height: 500px;
+        background-color: white;
+        z-index: 9999;
+      }
     </style>
   </head>
   <body>
@@ -38,33 +48,50 @@
       <a-scene
         embedded
         arjs="sourceType: webcam; debugUIEnabled: false; changeMatrixMode: cameraTransform;"
-        style="width: 100%; height: 100%;"
+        style="width: 100%; height: 100%"
+        renderer="logarithmicDepthBuffer: true"
       >
-        <a-entity
-          id="cursor"
-          cursor="rayOrigin: mouse"
-          raycaster="objects: [data-raycastable]"
-        ></a-entity>
+        <a-assets>
+          <a-asset-item
+            id="kids"
+            responce-type="arraybuffer"
+            src="/assets/3d models/kids.glb"
+          ></a-asset-item>
+        </a-assets>
 
-        <a-entity
-          position="0 1.5 -4"
-          class="collision-wrapper"
-          data-raycastable="true"
-        >
-          <a-plane
-            position="0 0 0"
-            width="1"
-            height="1"
-            visible="false"
-            static-body="shape: box; width: 1; height: 1; depth: 0.1;"
-          ></a-plane>
+        <a-triangle
+          color="white"
+          vertex-c="1 -1 0"
+          material=""
+          geometry=""
+          rotation="0 0 -84.52731760006009"
+          position="-0.203 2.90388 -14.56218"
+        ></a-triangle>
+        <a-entity position="0 3.78663 -15">
           <a-box
-            class="redbox"
             position="0 0 0"
-            color="red"
-            scale="0.5 0.5 0.5"
+            color="white"
+            scale="5.25733 2.86535 1"
+            material="color: #ffffff; emissive: #000000; wireframeLinewidth: 9.32; depthTest: false"
+            geometry=""
+            rotation="0 0.01 0"
           ></a-box>
+          <a-entity
+            position="0 1 0"
+            text="value: Hello Kids let's start ; align: center; color: black; shader: msdf; depthTest: false"
+            scale="10 10 10"
+          ></a-entity>
+           <a-entity
+            position="0 0.3 0"
+            text="value: Playing together  ; align: center; color: black; shader: msdf; depthTest: false"
+            scale="10 10 10"
+          ></a-entity>
         </a-entity>
+        <a-entity
+          gltf-model="#kids"
+          position="0 -3 -15"
+          animation-mixer="clip:idle d"
+        ></a-entity>
       </a-scene>
     </div>
   </body>
