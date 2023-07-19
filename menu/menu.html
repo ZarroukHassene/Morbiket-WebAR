@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Laser input UI</title>
+    <meta name="description" content="Laser input UI • A-Frame" />
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.3.0/dist/aframe-environment-component.min.js"></script>
+    <script src="info-message.js"></script>
+    <script src="highlight.js"></script>
+    <script src="info-panel.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+
+    <style>
+      button.a-info-message-button {
+        display: none;
+      }
+      button.a-enter-vr-button {
+        display: none;
+      }
+
+      /* Reset */
+      /* Main Styles */
+      .button {
+        font-family: "Bebas Neue", sans-serif;
+
+        top: 10px;
+        left: 10px;
+        z-index: 9999;
+        display: block;
+        background-color: black;
+        width: 150px;
+        height: 100px;
+        line-height: 100px;
+        margin: auto;
+        color: #fff;
+        position: absolute;
+        top: 500px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        cursor: pointer;
+        overflow: hidden;
+        border-radius: 5px;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+        transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+      }
+      .button span,
+      .button .icon {
+        display: block;
+        height: 100%;
+        text-align: center;
+        position: absolute;
+        top: 0;
+      }
+      .button span {
+        width: 72%;
+        line-height: inherit;
+        font-size: 30px;
+        text-transform: uppercase;
+        left: 0;
+        transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+        letter-spacing: 3px;
+      }
+      .button span:after {
+        content: "";
+        background-color: black;
+        width: 2px;
+        height: 70%;
+        position: absolute;
+        top: 15%;
+        right: -1px;
+      }
+      .button .icon {
+        width: 50%;
+        right: 0;
+        transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+      }
+      .button .icon .fa {
+        font-size: 30px;
+        vertical-align: middle;
+        transition: all 0.25s cubic-bezier(0.31, -0.105, 0.43, 1.4),
+          height 0.25s ease;
+      }
+      .button .icon .fa-remove {
+        height: 36px;
+      }
+      .button .icon .fa-check {
+        display: none;
+      }
+      .button.success span,
+      .button:hover span {
+        left: -72%;
+        opacity: 0;
+      }
+      .button.success .icon,
+      .button:hover .icon {
+        width: 100%;
+      }
+      .button.success .icon .fa,
+      .button:hover .icon .fa {
+        font-size: 45px;
+      }
+      .button.success {
+        background-color: #27ae60;
+      }
+      .button.success .icon .fa-remove {
+        display: none;
+      }
+      .button.success .icon .fa-check {
+        display: inline-block;
+      }
+      .button:hover {
+        opacity: 0.9;
+      }
+      .button:hover .icon .fa-remove {
+        height: 46px;
+      }
+      .button:active {
+        opacity: 1;
+      }
+      i#cameraButton {
+        margin-top: 36px;
+      }
+
+      .hide {
+        display: none;
+      }
+    </style>
+
+    
+  </head>
+  <body>
+    <a id="scanButton" class="button" href="/index.html" role="button">
+      <span>SCAN</span>
+      <div class="icon">
+        <i id="cameraButton" class="material-icons">photo_camera</i>
+        <i class="fa fa-check"></i>
+      </div>
+    </a>
+    <a-scene
+      background="color: #212"
+      environment="preset: forest; groundColor: #445; grid: cross"
+      cursor="rayOrigin: mouse; fuse: false"
+      raycaster="objects: .raycastable"
+      info-message="htmlSrc: #messageText"
+    >
+      <a-assets>
+        <a-asset-item id="messageText" src="message.html"></a-asset-item>
+
+        <img
+          id="kazetachinu"
+          src="/assets/images/sekou1024.jpg"
+          crossorigin="anonymous"
+        />
+        <img
+          id="kazetachinuPoster"
+          src="/assets/images/400x566 sekou.jpg"
+          crossorigin="anonymous"
+        />
+
+        <img
+          id="ponyo"
+          src="/assets/images/juliette1024.jpg"
+          crossorigin="anonymous"
+        />
+        <img
+          id="ponyoPoster"
+          src="/assets/images/400x566 juliette.jpg"
+          crossorigin="anonymous"
+        />
+
+        <img
+          id="karigurashi"
+          src="/assets/images/naim1024.jpg"
+          crossorigin="anonymous"
+        />
+        <img
+          id="karigurashiPoster"
+          src="/assets/images/400x566 naim.jpg"
+          crossorigin="anonymous"
+        />
+        <a-mixin
+          id="frame"
+          geometry="primitive: plane; width: 0.5783552; height: 0.8192"
+          material="color: white; shader: flat"
+          animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
+          animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
+        ></a-mixin>
+        <a-mixin
+          id="poster"
+          geometry="primitive: plane; width: 0.544768; height: 0.786432"
+          material="color: white; shader: flat"
+          material="shader: flat"
+          position="0 0 0.005"
+        ></a-mixin>
+        <a-mixin
+          id="movieImage"
+          geometry="primitive: plane; width: 1.5; height: 0.81"
+          material="src: #ponyo; shader: flat; transparent: true"
+          position="0 0.495 0.002"
+        ></a-mixin>
+      </a-assets>
+
+      <a-entity
+        id="background"
+        position="0 0 0"
+        geometry="primitive: sphere; radius: 2.0"
+        material="color: red; side: back; shader: flat"
+        scale="0.001 0.001 0.001"
+        visible="false"
+        class="raycastable"
+      >
+      </a-entity>
+
+      <a-entity
+        position="0 1.6 0"
+        camera
+        look-controls="magicWindowTrackingEnabled: false; touchEnabled: false; mouseEnabled: false"
+      >
+        <a-entity
+          id="fadeBackground"
+          geometry="primitive: sphere; radius: 2.5"
+          material="color: black; side: back; shader: flat; transparent: true; opacity: 0.6"
+          visible="false"
+        >
+        </a-entity>
+      </a-entity>
+
+      <!-- Hand controls -->
+      <a-entity
+        id="leftHand"
+        laser-controls="hand: left"
+        raycaster="objects: .raycastable"
+      ></a-entity>
+      <a-entity
+        id="rightHand"
+        laser-controls="hand: right"
+        raycaster="objects: .raycastable"
+        line="color: #118A7E"
+      ></a-entity>
+
+      <a-entity id="ui" position="0 1.6 -2.5">
+        <!-- Poster menu -->
+        <a-entity id="menu" highlight>
+          <a-entity
+            id="karigurashiButton"
+            position="-0.8 0 0"
+            mixin="frame"
+            class="raycastable menu-button"
+          >
+            <a-entity
+              material="src: #karigurashiPoster;"
+              mixin="poster"
+            ></a-entity>
+          </a-entity>
+
+          <a-entity
+            id="kazetachinuButton"
+            position="0 0 0"
+            mixin="frame"
+            class="raycastable menu-button"
+          >
+            <a-entity
+              material="src: #kazetachinuPoster"
+              mixin="poster"
+            ></a-entity>
+          </a-entity>
+
+          <a-entity
+            id="ponyoButton"
+            position="0.8 0 0"
+            mixin="frame"
+            class="raycastable menu-button"
+          >
+            <a-entity material="src: #ponyoPoster" mixin="poster"></a-entity>
+          </a-entity>
+        </a-entity>
+
+        <!-- Info panel of the selected movie. -->
+        <a-entity
+          id="infoPanel"
+          position="0 0 0.5"
+          info-panel
+          visible="false"
+          scale="0.001 0.001 0.001"
+          geometry="primitive: plane; width: 1.5; height: 1.8"
+          material="color: #333333; shader: flat; transparent: false"
+          class="raycastable"
+        >
+          <a-entity
+            id="ponyoMovieImage"
+            mixin="movieImage"
+            material="src: #ponyo"
+            visible="false"
+          ></a-entity>
+          <a-entity
+            id="kazetachinuMovieImage"
+            mixin="movieImage"
+            material="src: #kazetachinu"
+            visible="false"
+          ></a-entity>
+          <a-entity
+            id="karigurashiMovieImage"
+            mixin="movieImage"
+            material="src: #karigurashi"
+            visible="false"
+          ></a-entity>
+
+          <a-entity
+            id="movieTitle"
+            position="-0.68 -0.1 0"
+            text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: Ponyo (2003)"
+          ></a-entity>
+          <a-entity
+            id="movieDescription"
+            position="-0.68 -0.2 0"
+            text="baseline: top; shader: msdf; anchor: left; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          ></a-entity>
+        </a-entity>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
