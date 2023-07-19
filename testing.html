@@ -12,8 +12,6 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
 
-   
-
     <style>
       html,
       body,
@@ -82,8 +80,22 @@
           ></a-asset-item>
           <img id="sekou" src="/assets/images/500x500_sekou.jpg" />
           <img id="naim" src="/assets/images/500x500_naim.jpg" />
+          <audio id="firstPopupAudio" src="/assets/audio/1.mp4"></audio>
+          <audio id="secondPopupAudio" src="/assets/audio/2.mp4"></audio>
+          <audio id="thirdPopupAudio" src="/assets/audio/3.mp4"></audio>
         </a-assets>
-
+        <a-entity
+          id="firstPopupAudioo"
+          sound="src: #firstPopupAudio; autoplay: false;"
+        ></a-entity>
+        <a-entity
+          id="secondPopupAudioo"
+          sound="src: #secondPopupAudio; autoplay: false;"
+        ></a-entity>
+        <a-entity
+          id="thirdPopupAudioo"
+          sound="src: #thirdPopupAudio ; autoplay: false;"
+        ></a-entity>
         <a-entity id="firstPopup" position="0 3.78663 -15">
           <a-triangle
             color="white"
@@ -103,24 +115,24 @@
           ></a-box>
           <a-entity
             position="0 1 0"
-            text="value: Hello Kids we're going ; align: center; color: black; shader: msdf; depthTest: false"
+            text="value: Bonjour les enfants,nous ; align: center; color: black; shader: msdf; depthTest: false"
             scale="10 10 10"
           ></a-entity>
           <a-entity
             position="0 0.3 0"
-            text="value: to tell you a little story  ; align: center; color: black; shader: msdf; depthTest: false"
+            text="value: allons vous raconter une  ; align: center; color: black; shader: msdf; depthTest: false"
             scale="10 10 10"
           ></a-entity>
           <a-entity
             position="0 -0.4 0"
-            text="value: about us  ; align: center; color: black; shader: msdf; depthTest: false"
+            text="value: petite histoire sur nous. ; align: center; color: black; shader: msdf; depthTest: false"
             scale="10 10 10"
           ></a-entity>
         </a-entity>
 
         <a-entity
           id="secondPopup"
-          position="-5 0.7 -15"
+          position="-5.1153 0.7 -15"
           scale="0.5 0.5 1"
           rotation="5 0 0"
           visible="false"
@@ -131,33 +143,39 @@
             material=""
             geometry=""
             rotation=""
-            position="2.625 0.15647 -0.35687"
+            position="2.75997 -0.61402 -0.28963"
           ></a-triangle>
           <a-box
-            position="0 0 0"
+            position="-0.23093 0 0.00004"
             color="white"
-            scale="5.25733 2.86535 1"
+            scale="6.40752 2.86535 1"
             material="color: #ffffff; emissive: #000000; wireframeLinewidth: 9.32; depthTest: false"
             geometry=""
             rotation="0 0.01 0"
           ></a-box>
           <a-entity
             position="0 1 0"
-            text="value: Let's start with Sekou ; align: center; color: black; shader: msdf; depthTest: false"
+            text="value: Commençons par Sekou,; align: center; color: black; shader: msdf"
             scale="10 10 10"
           ></a-entity>
           <a-entity
             position="0 0.3 0"
-            text="value:Scan Sikou image to ; align: center; color: black; shader: msdf; depthTest: false"
+            text="value: scannez l'image de Sikou pour; align: center; color: black; shader: msdf"
             scale="10 10 10"
           ></a-entity>
           <a-entity
             position="0 -0.4 0"
-            text="value: start the story ; align: center; color: black; shader: msdf; depthTest: false"
+            text="value: commencer son histoire.; align: center; color: black; shader: msdf"
             scale="10 10 10"
           ></a-entity>
 
-          <a-image src="#sekou" position="-2.2 -0.7 0"> </a-image>
+          <a-image
+            src="#sekou"
+            position="-3.1592 -0.7 0"
+            material=""
+            geometry=""
+          >
+          </a-image>
         </a-entity>
 
         <a-entity
@@ -185,18 +203,18 @@
           ></a-box>
           <a-entity
             position="0 1 0"
-            text="value: And now lets move on ; align: center; color: black; shader: msdf; depthTest: false"
-            scale="10 10 10"
+            text="value: Passons maintenant à Naim ; align: center; color: black; shader: msdf; depthTest: false"
+            scale="7 7 7"
           ></a-entity>
           <a-entity
             position="0 0.3 0"
-            text="value:to Naim,Scan his image ; align: center; color: black; shader: msdf; depthTest: false"
-            scale="10 10 10"
+            text="value:scannez son image pour ; align: center; color: black; shader: msdf; depthTest: false"
+            scale="7 7 7"
           ></a-entity>
           <a-entity
             position="0 -0.4 0"
-            text="value: to start his story ; align: center; color: black; shader: msdf; depthTest: false"
-            scale="10 10 10"
+            text="value: commencer son histoire ; align: center; color: black; shader: msdf; depthTest: false"
+            scale="7 7 7"
           ></a-entity>
 
           <a-image src="#naim" position="-2.2 -0.7 0"> </a-image>
@@ -233,12 +251,19 @@
         const nextButton = document.getElementById("nextButton");
         const nextButton2 = document.getElementById("nextButton2");
         const nextButton3 = document.getElementById("nextButton3");
+
+        const firstPopupAudio = document.getElementById("firstPopupAudioo");
+        const secondPopupAudio = document.getElementById("secondPopupAudioo");
+        const thirdPopupAudio = document.getElementById("thirdPopupAudioo");
+        firstPopupAudio.setAttribute("sound", "autoplay", true);
+
         assets.addEventListener("loaded", () => {
           nextButton.classList.remove("hide");
         });
 
         // Add a click event listener to the button
         nextButton.addEventListener("click", () => {
+          secondPopupAudio.components.sound.playSound();
           // Set the animation attributes when the button is clicked
           camera.setAttribute(
             "animation",
@@ -261,6 +286,7 @@
         ////////////////////
 
         nextButton2.addEventListener("click", () => {
+          thirdPopupAudio.components.sound.playSound();
           camera.setAttribute("animation", "property: rotation; to: 0 0 0");
           camera.setAttribute(
             "animation__2",
