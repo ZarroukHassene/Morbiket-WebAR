@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your AR.js Project</title>
+
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js"></script>
+  </head>
+
+  <body style="margin: 0px; overflow: hidden">
+    <script>
+      AFRAME.registerComponent("hoverable", {
+        init: function () {
+          var entity = this.el;
+          console.log(entity); // Check if the entity is selected correctly
+
+          entity.addEventListener("click", function () {
+            console.log("click");
+          });
+
+          entity.addEventListener("mouseenter", function () {
+            console.log("mouseenter");
+          });
+
+          entity.addEventListener("mouseleave", function () {
+            console.log("mouseleave");
+          });
+        },
+      });
+    </script>
+
+    <a-scene
+      id="scene2"
+      vr-mode-ui="enabled: false;"
+      renderer="logarithmicDepthBuffer: true;"
+      embedded
+      arjs="trackingMethod: best; "
+      visible="true"
+    >
+      <a-entity
+        id="camera2"
+        camera
+        position="0 0 0"
+        cursor="rayOrigin: mouse"
+        raycaster="objects: .hoverable"
+      ></a-entity>
+      <a-assets>
+        <video
+          id="video1"
+          src="/assets/videos/1_sekou.mp4"
+          loop="true"
+          crossorigin
+        ></video>
+        <video
+          id="video2"
+          src="/assets/videos/2_naim.mp4"
+          loop="true"
+          crossorigin
+        ></video>
+        <video
+          id="video3"
+          src="/assets/videos/3_juliette.mp4"
+          loop="true"
+          crossorigin
+        ></video>
+      </a-assets>
+
+      <a-marker
+        id="marker1"
+        type="pattern"
+        url="/assets/images/markers/1_sekou.patt"
+      >
+        <a-video
+          src="#video1"
+          class="hoverable"
+          hoverable
+          transparent="true"
+          width="0.5"
+          height="0.5"
+          position="0 0 0"
+          rotation="-90 0 0"
+        ></a-video>
+      </a-marker>
+
+      <a-marker
+        id="marker2"
+        type="pattern"
+        url="/assets/images/markers/2_naim.patt"
+      >
+        <a-video
+          src="#video2"
+          class="hoverable"
+          hoverable
+          transparent="true"
+          width="0.5"
+          height="0.5"
+          position="0 0 0"
+          rotation="-90 0 0"
+        ></a-video>
+      </a-marker>
+
+      <a-marker
+        id="marker3"
+        type="pattern"
+        url="/assets/images/markers/3_juliette.patt"
+      >
+        <a-video
+          src="#video3"
+          class="hoverable"
+          hoverable
+          transparent="true"
+          width="0.5"
+          height="0.5"
+          position="0 0 0"
+          rotation="-90 0 0"
+        ></a-video>
+      </a-marker>
+    </a-scene>
+
+    <div class="videoControls">
+      <button id="soundButton">
+        <i id="musicButton" class="material-icons">music_note</i>
+      </button>
+      <button id="previousButton">
+        <i id="previousButton" class="material-icons">skip_previous</i>
+      </button>
+      <button id="nextButton">
+        <i id="nextButton" class="material-icons"> skip_next</i>
+      </button>
+    </div>
+  </body>
+</html>
