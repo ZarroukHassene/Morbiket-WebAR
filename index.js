@@ -3,8 +3,23 @@ document.addEventListener("DOMContentLoaded", function () {
   const video2 = document.querySelector("#video2");
   const video3 = document.querySelector("#video3");
   const previousButton = document.getElementById("previousButton");
-  const nextButton = document.getElementById("nextButton");
+  const nextButtonVideo = document.getElementById("nextButtonVideo");
   const videoControls = document.querySelector(".videoControls");
+  const kids = document.getElementById("kidsModel");
+
+  const assets = document.querySelector("a-assets");
+  const firstPopup = document.getElementById("firstPopup");
+  const secondPopup = document.getElementById("secondPopup");
+  const thirdPopup = document.getElementById("thirdPopup");
+  const nextButton = document.getElementById("nextButton");
+  const nextButton2 = document.getElementById("nextButton2");
+  const nextButton3 = document.getElementById("nextButton3");
+
+  const firstPopupAudio = document.getElementById("firstPopupAudioo");
+  const secondPopupAudio = document.getElementById("secondPopupAudioo");
+  const thirdPopupAudio = document.getElementById("thirdPopupAudioo");
+
+  const popupsAndModels = document.getElementById("popupsAndModels");
 
   // const camera2 = document.getElementById("camera2");
 
@@ -105,6 +120,15 @@ document.addEventListener("DOMContentLoaded", function () {
           "src",
           "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
         );
+        popupsAndModels.setAttribute(
+          "animation",
+          "property: position; to: -4.467 1.029 9.627"
+        );
+        kids.setAttribute("animation", "property: rotation; to: 0 21.71 0");
+        kids.setAttribute("animation__2", "property: position; to: 0 -3 -15");
+        nextButton2.classList.add("hide");
+        secondPopup.setAttribute("visible", "false");
+        thirdPopup.setAttribute("visible", "true");
       } else if (
         videoAsset.src === "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
       ) {
@@ -113,6 +137,18 @@ document.addEventListener("DOMContentLoaded", function () {
           "src",
           "http://127.0.0.1:5500/assets/videos/1_sekou.mp4"
         );
+        popupsAndModels.setAttribute(
+          "animation",
+          "property: position; to: 5.38529 1.01941 7.42586"
+        );
+        kids.setAttribute("animation", "property: rotation; to: 0 -21.71 0");
+        kids.setAttribute(
+          "animation__2",
+          "property: position; to: 0 -3 -14.15818"
+        );
+        nextButton.classList.add("hide");
+        firstPopup.setAttribute("visible", "false");
+        secondPopup.setAttribute("visible", "true");
       }
 
       videoAsset.load();
@@ -138,6 +174,15 @@ document.addEventListener("DOMContentLoaded", function () {
           "src",
           "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
         );
+        popupsAndModels.setAttribute(
+          "animation",
+          "property: position; to: -4.467 1.029 9.627"
+        );
+        kids.setAttribute("animation", "property: rotation; to: 0 21.71 0");
+        kids.setAttribute("animation__2", "property: position; to: 0 -3 -15");
+        nextButton2.classList.add("hide");
+        secondPopup.setAttribute("visible", "false");
+        thirdPopup.setAttribute("visible", "true");
       } else if (
         videoAsset.src === "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
       ) {
@@ -146,6 +191,18 @@ document.addEventListener("DOMContentLoaded", function () {
           "src",
           "http://127.0.0.1:5500/assets/videos/1_sekou.mp4"
         );
+        popupsAndModels.setAttribute(
+          "animation",
+          "property: position; to: 5.38529 1.01941 7.42586"
+        );
+        kids.setAttribute("animation", "property: rotation; to: 0 -21.71 0");
+        kids.setAttribute(
+          "animation__2",
+          "property: position; to: 0 -3 -14.15818"
+        );
+        nextButton.classList.add("hide");
+        firstPopup.setAttribute("visible", "false");
+        secondPopup.setAttribute("visible", "true");
       }
 
       videoAsset.load();
@@ -171,6 +228,15 @@ document.addEventListener("DOMContentLoaded", function () {
           "src",
           "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
         );
+        popupsAndModels.setAttribute(
+          "animation",
+          "property: position; to: -4.467 1.029 9.627"
+        );
+        kids.setAttribute("animation", "property: rotation; to: 0 21.71 0");
+        kids.setAttribute("animation__2", "property: position; to: 0 -3 -15");
+        nextButton2.classList.add("hide");
+        secondPopup.setAttribute("visible", "false");
+        thirdPopup.setAttribute("visible", "true");
       } else if (
         videoAsset.src === "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
       ) {
@@ -179,6 +245,18 @@ document.addEventListener("DOMContentLoaded", function () {
           "src",
           "http://127.0.0.1:5500/assets/videos/1_sekou.mp4"
         );
+        popupsAndModels.setAttribute(
+          "animation",
+          "property: position; to: 5.38529 1.01941 7.42586"
+        );
+        kids.setAttribute("animation", "property: rotation; to: 0 -21.71 0");
+        kids.setAttribute(
+          "animation__2",
+          "property: position; to: 0 -3 -14.15818"
+        );
+        nextButton.classList.add("hide");
+        firstPopup.setAttribute("visible", "false");
+        secondPopup.setAttribute("visible", "true");
       }
 
       videoAsset.load();
@@ -186,7 +264,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  nextButton.addEventListener("click", function () {
+  nextButtonVideo.addEventListener("click", function () {
     if (!video1.paused) {
       let videoAsset = document.querySelector("#video1");
       console.log(videoAsset.src);
@@ -200,6 +278,15 @@ document.addEventListener("DOMContentLoaded", function () {
           "src",
           "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
         );
+        popupsAndModels.setAttribute(
+          "animation",
+          "property: position; to: -4.467 1.029 9.627"
+        );
+        kids.setAttribute("animation", "property: rotation; to: 0 21.71 0");
+        kids.setAttribute("animation__2", "property: position; to: 0 -3 -15");
+        nextButton2.classList.add("hide");
+        secondPopup.setAttribute("visible", "false");
+        thirdPopup.setAttribute("visible", "true");
       } else if (
         videoAsset.src === "http://127.0.0.1:5500/assets/videos/3_juliette.mp4"
       ) {
@@ -208,6 +295,18 @@ document.addEventListener("DOMContentLoaded", function () {
           "src",
           "http://127.0.0.1:5500/assets/videos/1_sekou.mp4"
         );
+        popupsAndModels.setAttribute(
+          "animation",
+          "property: position; to: 5.38529 1.01941 7.42586"
+        );
+        kids.setAttribute("animation", "property: rotation; to: 0 -21.71 0");
+        kids.setAttribute(
+          "animation__2",
+          "property: position; to: 0 -3 -14.15818"
+        );
+        nextButton.classList.add("hide");
+        firstPopup.setAttribute("visible", "false");
+        secondPopup.setAttribute("visible", "true");
       } else if (
         videoAsset.src === "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
       ) {
@@ -233,6 +332,15 @@ document.addEventListener("DOMContentLoaded", function () {
           "src",
           "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
         );
+        popupsAndModels.setAttribute(
+          "animation",
+          "property: position; to: -4.467 1.029 9.627"
+        );
+        kids.setAttribute("animation", "property: rotation; to: 0 21.71 0");
+        kids.setAttribute("animation__2", "property: position; to: 0 -3 -15");
+        nextButton2.classList.add("hide");
+        secondPopup.setAttribute("visible", "false");
+        thirdPopup.setAttribute("visible", "true");
       } else if (
         videoAsset.src === "http://127.0.0.1:5500/assets/videos/3_juliette.mp4"
       ) {
@@ -241,6 +349,18 @@ document.addEventListener("DOMContentLoaded", function () {
           "src",
           "http://127.0.0.1:5500/assets/videos/1_sekou.mp4"
         );
+        popupsAndModels.setAttribute(
+          "animation",
+          "property: position; to: 5.38529 1.01941 7.42586"
+        );
+        kids.setAttribute("animation", "property: rotation; to: 0 -21.71 0");
+        kids.setAttribute(
+          "animation__2",
+          "property: position; to: 0 -3 -14.15818"
+        );
+        nextButton.classList.add("hide");
+        firstPopup.setAttribute("visible", "false");
+        secondPopup.setAttribute("visible", "true");
       } else if (
         videoAsset.src === "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
       ) {
@@ -266,6 +386,15 @@ document.addEventListener("DOMContentLoaded", function () {
           "src",
           "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
         );
+        popupsAndModels.setAttribute(
+          "animation",
+          "property: position; to: -4.467 1.029 9.627"
+        );
+        kids.setAttribute("animation", "property: rotation; to: 0 21.71 0");
+        kids.setAttribute("animation__2", "property: position; to: 0 -3 -15");
+        nextButton2.classList.add("hide");
+        secondPopup.setAttribute("visible", "false");
+        thirdPopup.setAttribute("visible", "true");
       } else if (
         videoAsset.src === "http://127.0.0.1:5500/assets/videos/3_juliette.mp4"
       ) {
@@ -274,6 +403,18 @@ document.addEventListener("DOMContentLoaded", function () {
           "src",
           "http://127.0.0.1:5500/assets/videos/1_sekou.mp4"
         );
+        popupsAndModels.setAttribute(
+          "animation",
+          "property: position; to: 5.38529 1.01941 7.42586"
+        );
+        kids.setAttribute("animation", "property: rotation; to: 0 -21.71 0");
+        kids.setAttribute(
+          "animation__2",
+          "property: position; to: 0 -3 -14.15818"
+        );
+        nextButton.classList.add("hide");
+        firstPopup.setAttribute("visible", "false");
+        secondPopup.setAttribute("visible", "true");
       } else if (
         videoAsset.src === "http://127.0.0.1:5500/assets/videos/2_naim.mp4"
       ) {
@@ -308,5 +449,52 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  
+  ////////////////////// 3D MODELS AND POPUPS JS
+
+  firstPopupAudio.setAttribute("sound", "autoplay", true);
+
+  assets.addEventListener("loaded", () => {
+    nextButton.classList.remove("hide");
+  });
+
+  // Add a click event listener to the button
+  nextButton.addEventListener("click", () => {
+    secondPopupAudio.components.sound.playSound();
+    // Set the animation attributes when the button is clicked
+    popupsAndModels.setAttribute(
+      "animation",
+      "property: position; to: 5.38529 1.01941 7.42586"
+    );
+    kids.setAttribute("animation", "property: rotation; to: 0 -21.71 0");
+    kids.setAttribute("animation__2", "property: position; to: 0 -3 -14.15818");
+    nextButton.classList.add("hide");
+    firstPopup.setAttribute("visible", "false");
+    secondPopup.setAttribute("visible", "true");
+  });
+
+  ////////////////////
+
+  nextButton2.addEventListener("click", () => {
+    thirdPopupAudio.components.sound.playSound();
+
+    popupsAndModels.setAttribute(
+      "animation",
+      "property: position; to: -4.467 1.029 9.627"
+    );
+    kids.setAttribute("animation", "property: rotation; to: 0 21.71 0");
+    kids.setAttribute("animation__2", "property: position; to: 0 -3 -15");
+    nextButton2.classList.add("hide");
+    secondPopup.setAttribute("visible", "false");
+    thirdPopup.setAttribute("visible", "true");
+  });
+
+  popupsAndModels.addEventListener("animationcomplete", function (event) {
+    if (secondPopup.getAttribute("visible") == true) {
+      console.log("hello");
+      nextButton2.classList.remove("hide");
+    }
+    if (thirdPopup.getAttribute("visible") == true) {
+      nextButton3.classList.remove("hide");
+    }
+  });
 });
