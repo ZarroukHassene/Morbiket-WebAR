@@ -1,314 +1,147 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your AR.js Project</title>
+
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-    <!-- include ar.js for A-Frame -->
-    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
-
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
 
-    <style>
-      html,
-      body,
-      #arjsScene {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-      }
-
-      .dialog {
-        width: 500px;
-        height: 500px;
-        background-color: white;
-        z-index: 9999;
-      }
-      .nextButton {
-        position: absolute;
-        top: calc((100vh / 2.7));
-        right: calc((100vw / 2.8));
-        background-color: green;
-        border: none;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        cursor: pointer;
-        border: 1px solid black;
-      }
-      .nextButton:hover {
-        background-color: greenyellow;
-      }
-      #nextIcon {
-        font-size: 23px;
-        margin-left: -2px;
-      }
-      .hide {
-        display: none;
-      }
-
-      #nextButton2 {
-        top: calc((100vh / 3.5));
-        right: calc((100vw / 2.9));
-      }
-      #nextButton3 {
-        top: calc((100vh / 4.7));
-        right: calc((100vw / 2.55555));
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js"></script>
   </head>
-  <body>
-    <div id="arjsScene">
-      <a-scene
-        id="scene"
-        embedded
-        arjs="sourceType: webcam; debugUIEnabled: false; changeMatrixMode: cameraTransform;"
-        style="width: 100%; height: 100%"
-        renderer="logarithmicDepthBuffer: true"
-      >
-        <a-camera id="camera"></a-camera>
-        <a-assets>
-          <a-asset-item
-            id="kids"
-            responce-type="arraybuffer"
-            src="/assets/3d models/kids.glb"
-          ></a-asset-item>
-          <img id="sekou" src="/assets/images/500x500_sekou.jpg" />
-          <img id="naim" src="/assets/images/500x500_naim.jpg" />
-          <audio id="firstPopupAudio" src="/assets/audio/1.mp4"></audio>
-          <audio id="secondPopupAudio" src="/assets/audio/2.mp4"></audio>
-          <audio id="thirdPopupAudio" src="/assets/audio/3.mp4"></audio>
-        </a-assets>
-        <a-entity
-          id="firstPopupAudioo"
-          sound="src: #firstPopupAudio; autoplay: false;"
-        ></a-entity>
-        <a-entity
-          id="secondPopupAudioo"
-          sound="src: #secondPopupAudio; autoplay: false;"
-        ></a-entity>
-        <a-entity
-          id="thirdPopupAudioo"
-          sound="src: #thirdPopupAudio ; autoplay: false;"
-        ></a-entity>
-        <a-entity id="firstPopup" position="0 3.78663 -15">
-          <a-triangle
-            color="white"
-            vertex-c="1 -1 0"
-            material=""
-            geometry=""
-            rotation="0 0 -84.52731760006009"
-            position="-0.203 -0.655 -14.56218"
-          ></a-triangle>
-          <a-box
-            position="0 0 0"
-            color="white"
-            scale="5.25733 2.86535 1"
-            material="color: #ffffff; emissive: #000000; wireframeLinewidth: 9.32; depthTest: false"
-            geometry=""
-            rotation="0 0.01 0"
-          ></a-box>
-          <a-entity
-            position="0 1 0"
-            text="value: Bonjour les enfants,nous ; align: center; color: black; shader: msdf; depthTest: false"
-            scale="10 10 10"
-          ></a-entity>
-          <a-entity
-            position="0 0.3 0"
-            text="value: allons vous raconter une  ; align: center; color: black; shader: msdf; depthTest: false"
-            scale="10 10 10"
-          ></a-entity>
-          <a-entity
-            position="0 -0.4 0"
-            text="value: petite histoire sur nous. ; align: center; color: black; shader: msdf; depthTest: false"
-            scale="10 10 10"
-          ></a-entity>
-        </a-entity>
 
-        <a-entity
-          id="secondPopup"
-          position="-5.1153 0.7 -15"
-          scale="0.5 0.5 1"
-          rotation="5 0 0"
-          visible="false"
-        >
-          <a-triangle
-            color="white"
-            vertex-c="1 -1 0"
-            material=""
-            geometry=""
-            rotation=""
-            position="2.75997 -0.61402 -0.28963"
-          ></a-triangle>
-          <a-box
-            position="-0.23093 0 0.00004"
-            color="white"
-            scale="6.40752 2.86535 1"
-            material="color: #ffffff; emissive: #000000; wireframeLinewidth: 9.32; depthTest: false"
-            geometry=""
-            rotation="0 0.01 0"
-          ></a-box>
-          <a-entity
-            position="0 1 0"
-            text="value: Commençons par Sekou,; align: center; color: black; shader: msdf"
-            scale="10 10 10"
-          ></a-entity>
-          <a-entity
-            position="0 0.3 0"
-            text="value: scannez l'image de Sikou pour; align: center; color: black; shader: msdf"
-            scale="10 10 10"
-          ></a-entity>
-          <a-entity
-            position="0 -0.4 0"
-            text="value: commencer son histoire.; align: center; color: black; shader: msdf"
-            scale="10 10 10"
-          ></a-entity>
-
-          <a-image
-            src="#sekou"
-            position="-3.1592 -0.7 0"
-            material=""
-            geometry=""
-          >
-          </a-image>
-        </a-entity>
-
-        <a-entity
-          id="thirdPopup"
-          position="4.05498 0.20609 -15"
-          scale="0.25 0.25 1"
-          rotation="9.670 0 0"
-          visible="false"
-        >
-          <a-triangle
-            color="white"
-            vertex-c="1 -1 0"
-            material=""
-            geometry=""
-            rotation="0 0 239.99999999999997"
-            position="-2.868 0.15647 -0.35687"
-          ></a-triangle>
-          <a-box
-            position="0 0 0"
-            color="white"
-            scale="5.25733 2.86535 1"
-            material="color: #ffffff; emissive: #000000; wireframeLinewidth: 9.32; depthTest: false"
-            geometry=""
-            rotation="0 0.01 0"
-          ></a-box>
-          <a-entity
-            position="0 1 0"
-            text="value: Passons maintenant à Naim ; align: center; color: black; shader: msdf; depthTest: false"
-            scale="7 7 7"
-          ></a-entity>
-          <a-entity
-            position="0 0.3 0"
-            text="value:scannez son image pour ; align: center; color: black; shader: msdf; depthTest: false"
-            scale="7 7 7"
-          ></a-entity>
-          <a-entity
-            position="0 -0.4 0"
-            text="value: commencer son histoire ; align: center; color: black; shader: msdf; depthTest: false"
-            scale="7 7 7"
-          ></a-entity>
-
-          <a-image src="#naim" position="-2.2 -0.7 0"> </a-image>
-        </a-entity>
-
-        <a-entity
-          id="kidsModel"
-          gltf-model="#kids"
-          position="0 -3 -15"
-          animation-mixer="clip:idle d"
-        >
-        </a-entity>
-      </a-scene>
-    </div>
-    <button id="nextButton" class="nextButton hide">
-      <i id="nextIcon" class="material-icons">arrow_forward_ios</i>
-    </button>
-    <button id="nextButton2" class="nextButton hide">
-      <i id="nextIcon" class="material-icons">arrow_forward_ios</i>
-    </button>
-
-    <button id="nextButton3" class="nextButton hide">
-      <i id="nextIcon" class="material-icons">arrow_forward_ios</i>
-    </button>
+  <body style="margin: 0px; overflow: hidden">
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const camera = document.getElementById("camera");
-        const kids = document.getElementById("kidsModel");
+      AFRAME.registerComponent("hoverable", {
+        init: function () {
+          var entity = this.el;
+          console.log(entity); // Check if the entity is selected correctly
 
-        const assets = document.querySelector("a-assets");
-        const firstPopup = document.getElementById("firstPopup");
-        const secondPopup = document.getElementById("secondPopup");
-        const thirdPopup = document.getElementById("thirdPopup");
-        const nextButton = document.getElementById("nextButton");
-        const nextButton2 = document.getElementById("nextButton2");
-        const nextButton3 = document.getElementById("nextButton3");
+          entity.addEventListener("click", function () {
+            console.log("click");
+          });
 
-        const firstPopupAudio = document.getElementById("firstPopupAudioo");
-        const secondPopupAudio = document.getElementById("secondPopupAudioo");
-        const thirdPopupAudio = document.getElementById("thirdPopupAudioo");
-        firstPopupAudio.setAttribute("sound", "autoplay", true);
+          entity.addEventListener("mouseenter", function () {
+            console.log("mouseenter");
+          });
 
-        assets.addEventListener("loaded", () => {
-          nextButton.classList.remove("hide");
-        });
-
-        // Add a click event listener to the button
-        nextButton.addEventListener("click", () => {
-          secondPopupAudio.components.sound.playSound();
-          // Set the animation attributes when the button is clicked
-          camera.setAttribute(
-            "animation",
-            "property: rotation; to: 0 0.11459155902616465 0"
-          );
-          camera.setAttribute(
-            "animation__2",
-            "property: position; to: -4.77957 -0.72 -8.75279"
-          );
-          kids.setAttribute("animation", "property: rotation; to: 0 -21.71 0");
-          kids.setAttribute(
-            "animation__2",
-            "property: position; to: 0 -3 -14.15818"
-          );
-          nextButton.classList.add("hide");
-          firstPopup.setAttribute("visible", "false");
-          secondPopup.setAttribute("visible", "true");
-        });
-
-        ////////////////////
-
-        nextButton2.addEventListener("click", () => {
-          thirdPopupAudio.components.sound.playSound();
-          camera.setAttribute("animation", "property: rotation; to: 0 0 0");
-          camera.setAttribute(
-            "animation__2",
-            "property: position; to: 4.195 -1.019 -10.3361"
-          );
-          kids.setAttribute("animation", "property: rotation; to: 0 21.71 0");
-          kids.setAttribute("animation__2", "property: position; to: 0 -3 -15");
-          nextButton2.classList.add("hide");
-          secondPopup.setAttribute("visible", "false");
-          thirdPopup.setAttribute("visible", "true");
-        });
-
-        camera.addEventListener("animationcomplete", function (event) {
-          if (secondPopup.getAttribute("visible") == true) {
-            console.log("hello");
-            nextButton2.classList.remove("hide");
-          }
-          if (thirdPopup.getAttribute("visible") == true) {
-            nextButton3.classList.remove("hide");
-          }
-        });
+          entity.addEventListener("mouseleave", function () {
+            console.log("mouseleave");
+          });
+        },
       });
     </script>
+
+    <a-scene
+      id="scene2"
+      vr-mode-ui="enabled: false;"
+      renderer="logarithmicDepthBuffer: true;"
+      embedded
+      arjs="trackingMethod: best; "
+      visible="true"
+    >
+      <a-entity
+        id="camera2"
+        camera
+        position="0 0 0"
+        cursor="rayOrigin: mouse"
+        raycaster="objects: .hoverable"
+      ></a-entity>
+      <a-assets>
+        <video
+          id="video1"
+          src="/assets/videos/1_sekou.mp4"
+          loop="true"
+          crossorigin
+        ></video>
+        <video
+          id="video2"
+          src="/assets/videos/2_naim.mp4"
+          loop="true"
+          crossorigin
+        ></video>
+        <video
+          id="video3"
+          src="/assets/videos/3_juliette.mp4"
+          loop="true"
+          crossorigin
+        ></video>
+      </a-assets>
+
+      <a-marker
+        id="marker1"
+        type="pattern"
+        url="/assets/images/markers/1_sekou.patt"
+      >
+        <a-video
+          src="#video1"
+          class="hoverable"
+          hoverable
+          transparent="true"
+          width="0.5"
+          height="0.5"
+          position="0 0 0"
+          rotation="-90 0 0"
+        ></a-video>
+      </a-marker>
+
+      <a-marker
+        id="marker2"
+        type="pattern"
+        url="/assets/images/markers/2_naim.patt"
+      >
+        <a-video
+          src="#video2"
+          class="hoverable"
+          hoverable
+          transparent="true"
+          width="0.5"
+          height="0.5"
+          position="0 0 0"
+          rotation="-90 0 0"
+        ></a-video>
+      </a-marker>
+
+      <a-marker
+        id="marker3"
+        type="pattern"
+        url="/assets/images/markers/3_juliette.patt"
+      >
+        <a-video
+          src="#video3"
+          class="hoverable"
+          hoverable
+          transparent="true"
+          width="0.5"
+          height="0.5"
+          position="0 0 0"
+          rotation="-90 0 0"
+        ></a-video>
+      </a-marker>
+    </a-scene>
+
+    <div class="videoControls">
+      <button id="soundButton">
+        <i id="musicButton" class="material-icons">music_note</i>
+      </button>
+      <button id="previousButton">
+        <i id="previousButton" class="material-icons">skip_previous</i>
+      </button>
+      <button id="nextButtonVideo">
+        <i id="nextButtonVideo" class="material-icons"> skip_next</i>
+      </button>
+    </div>
   </body>
 </html>
