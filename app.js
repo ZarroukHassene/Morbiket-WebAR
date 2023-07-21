@@ -55,6 +55,7 @@ const videoUrls = [
   const fullscreenVideo = document.getElementById("fullscreenVideo");
   const videoPlayer2 = document.getElementById("videoPlayer2");
   const ARviewport = document.getElementById("ARviewport");
+  const fullscreenBtn = document.getElementById("fullscreenBtn");
   
   let lastPlaybackPosition = 0;
   const marker = document.querySelector("a-marker");
@@ -145,6 +146,8 @@ videoPlayer2.src = videoUrls[currentIndex];
 videoPlayer2.currentTime = videoPlayer.currentTime;
 videoPlayer.pause();
 videoPlayer2.play();
+//Hide the video player controls of id "videoPlayer2"
+
 
 
   }
@@ -156,6 +159,17 @@ videoPlayer2.play();
   muteUnmuteBtn.addEventListener("click", toggleMuteUnmute);
   showHidePlaylistBtn.addEventListener("click", togglePlaylist);
   fullscreenBtn.addEventListener("click", openFullscreen);
+  
+  //When videoPlayer2 exits fullscreen mode, hide the div of id "fullscreenVideo" and unhide the div of id "ARviewport" and resume playing the video of id "videoPlayer"
+  videoPlayer2.addEventListener("fullscreenchange", function() {
+    if (!document.fullscreenElement) {
+      fullscreenVideo.style.display = "none";
+      ARviewport.style.display = "block";
+      videoPlayer2.pause();
+      videoPlayer.play();
+    }
+  });
+  
   
   
   // Start playing the first video in the playlist
