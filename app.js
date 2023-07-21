@@ -52,6 +52,9 @@ const videoUrls = [
   const muteUnmuteIcon = document.getElementById("muteUnmuteIcon");
   const showHidePlaylistBtn = document.getElementById("showHidePlaylistBtn");
   const showHidePlaylistIcon = document.getElementById("showHidePlaylistIcon");
+  const fullscreenVideo = document.getElementById("fullscreenVideo");
+  const videoPlayer2 = document.getElementById("videoPlayer2");
+  const ARviewport = document.getElementById("ARviewport");
   
   let lastPlaybackPosition = 0;
   const marker = document.querySelector("a-marker");
@@ -131,12 +134,28 @@ const videoUrls = [
   
   });
   
+
+  //Function to hide the div of id "ARviewport" and unhide the div of id "fullscreenVideo" when the button of id "fullscreenBtn" is clicked and puts the video of id "videPlayer2" in fullscreen mode
+  function openFullscreen() {
+ARviewport.style.display = "none";
+fullscreenVideo.style.display = "block";
+videoPlayer2.requestFullscreen();
+//Change the src of the video element of id "videoPlayer2" to the video URL of the currently playing video
+videoPlayer2.src = videoUrls[currentIndex];
+videoPlayer2.currentTime = videoPlayer.currentTime;
+videoPlayer.pause();
+videoPlayer2.play();
+
+
+  }
+
   // Add event listeners for buttons
   document.getElementById("nextBtn").addEventListener("click", nextVideo);
   document.getElementById("previousBtn").addEventListener("click", previousVideo);
   playPauseBtn.addEventListener("click", togglePlayPause);
   muteUnmuteBtn.addEventListener("click", toggleMuteUnmute);
   showHidePlaylistBtn.addEventListener("click", togglePlaylist);
+  fullscreenBtn.addEventListener("click", openFullscreen);
   
   
   // Start playing the first video in the playlist

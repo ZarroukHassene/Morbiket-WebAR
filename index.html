@@ -14,7 +14,7 @@
 <body style="margin: 0; overflow: hidden;">
 
     <!-- Scene -->
-
+    <div id="ARviewport">
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
 
         <!-- Asset Management -->
@@ -39,7 +39,12 @@
         <!-- Controls -->
 
     </a-scene>
-
+</div>
+<div id="fullscreenVideo" hidden>
+    <video id="videoPlayer2" controls>
+        <source src="" type="video/mp4">
+    </video>
+</div>
     <!-- Your buttons here -->
 
     <div id="playlist">
@@ -67,6 +72,9 @@
         </button>
         <button id="muteUnmuteBtn">
             <img id="muteUnmuteIcon" src="./media/unmutedBtn.png" alt="Mute">
+        </button>
+        <button id="fullscreenBtn">
+            <img id="fullscreenIcon" src="./media/fullscreenBtn.png" alt="Fullscreen">
         </button>
 
     </div>
