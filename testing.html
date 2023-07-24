@@ -6,136 +6,630 @@
     <title>Your AR.js Project</title>
 
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
-    />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
 
     <link rel="stylesheet" href="style.css" />
-    <script src="index.js"></script>
   </head>
 
   <body style="margin: 0px; overflow: hidden">
-    <script>
-      AFRAME.registerComponent("hoverable", {
-        init: function () {
-          var entity = this.el;
-          console.log(entity); // Check if the entity is selected correctly
-
-          entity.addEventListener("click", function () {
-            console.log("click");
-          });
-
-          entity.addEventListener("mouseenter", function () {
-            console.log("mouseenter");
-          });
-
-          entity.addEventListener("mouseleave", function () {
-            console.log("mouseleave");
-          });
-        },
-      });
-    </script>
-
     <a-scene
-      id="scene2"
-      vr-mode-ui="enabled: false;"
-      renderer="logarithmicDepthBuffer: true;"
-      embedded
-      arjs="trackingMethod: best; "
-      visible="true"
+      inspector=""
+      keyboard-shortcuts=""
+      screenshot=""
+      vr-mode-ui=""
+      device-orientation-permission-ui=""
+      background="steelblue"
     >
-      <a-entity
-        id="camera2"
-        camera
-        position="0 0 0"
-        cursor="rayOrigin: mouse"
-        raycaster="objects: .hoverable"
-      ></a-entity>
       <a-assets>
-        <video
-          id="video1"
-          src="/assets/videos/1_sekou.mp4"
-          loop="true"
-          crossorigin
-        ></video>
-        <video
-          id="video2"
-          src="/assets/videos/2_naim.mp4"
-          loop="true"
-          crossorigin
-        ></video>
-        <video
-          id="video3"
-          src="/assets/videos/3_juliette.mp4"
-          loop="true"
-          crossorigin
-        ></video>
+        <img id="sekou" src="/assets/images/1_sekou.jpg" />
+        <img id="juliette" src="/assets/images/3_juliette.jpg" />
+        <img id="naim" src="/assets/images/2_naim.jpg" />
+        <img id="morbiket" src="/assets/images/morbiket.png" />
       </a-assets>
 
-      <a-marker
-        id="marker1"
-        type="pattern"
-        url="/assets/images/markers/1_sekou.patt"
-      >
-        <a-video
-          src="#video1"
-          class="hoverable"
-          hoverable
-          transparent="true"
-          width="0.5"
-          height="0.5"
-          position="0 0 0"
-          rotation="-90 0 0"
-        ></a-video>
-      </a-marker>
+      <a-plane
+        id="backgroundScene"
+        position="0 -1.000 -5"
+        rotation="-90 0 0"
+        width="100"
+        height="100"
+        color="#FF1515"
+      ></a-plane>
+      <a-entity
+        id="camera"
+        camera="zoom: 4"
+        position="-5.400 3.5309 1.44074"
+        data-aframe-inspector-original-camera=""
+        rotation="-37.1 -41.71 0"
+      ></a-entity>
 
-      <a-marker
-        id="marker2"
-        type="pattern"
-        url="/assets/images/markers/2_naim.patt"
-      >
-        <a-video
-          src="#video2"
-          class="hoverable"
-          hoverable
-          transparent="true"
-          width="0.5"
-          height="0.5"
-          position="0 0 0"
-          rotation="-90 0 0"
-        ></a-video>
-      </a-marker>
+      <a-entity id="CardsGroup1">
+        <a-entity id="first line">
+          <a-box
+            class="card allCards"
+            color="#080808"
+            position="-5.1 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation="180 0 0"
+          >
+            <a-image
+              src="#sekou"
+              material=""
+              geometry=""
+              scale="0.9 0.9 1"
+              rotation="90 90 0"
+              position="0 0.6 0"
+            ></a-image>
 
-      <a-marker
-        id="marker3"
-        type="pattern"
-        url="/assets/images/markers/3_juliette.patt"
-      >
-        <a-video
-          src="#video3"
-          class="hoverable"
-          hoverable
-          transparent="true"
-          width="0.5"
-          height="0.5"
-          position="0 0 0"
-          rotation="-90 0 0"
-        ></a-video>
-      </a-marker>
+            <a-image
+              src="#morbiket"
+              material=""
+              geometry=""
+              scale="1.3 0.5 1"
+              rotation="90 90 0"
+              position="0.01227 -0.85156 0"
+            ></a-image
+          ></a-box>
+
+          <a-box
+            class="card allCards"
+            color="#080808"
+            position="-3.4 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation="180 0 0"
+          >
+            <a-image
+              src="#naim"
+              material=""
+              geometry=""
+              scale="0.9 0.9 1"
+              rotation="90 90 0"
+              position="0 0.6 0"
+            ></a-image
+          >
+          <a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="90 90 0"
+          position="0.01227 -0.85156 0"
+        ></a-image
+      ></a-box>
+          <a-box
+            class="card allCards"
+            color="#080808"
+            position="-1.7 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation="180 0 0"
+          >
+            <a-image
+              src="#juliette"
+              material=""
+              geometry=""
+              scale="0.9 0.9 1"
+              rotation="90 90 0"
+              position="0 0.6 0"
+            ></a-image
+          >
+          <a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="90 90 0"
+          position="0.01227 -0.85156 0"
+        ></a-image
+      ></a-box>
+          <a-box
+            class="card allCards"
+            color="#080808"
+            position="0 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation="180 0 0"
+          >
+            <a-image
+              src="#sekou"
+              material=""
+              geometry=""
+              scale="0.9 0.9 1"
+              rotation="90 90 0"
+              position="0 0.6 0"
+            ></a-image>
+            <a-image
+              src="#morbiket"
+              material=""
+              geometry=""
+              scale="1.3 0.5 1"
+              rotation="90 90 0"
+              position="0.01227 -0.85156 0"
+            ></a-image
+          >
+          </a-box>
+
+          <a-box
+            class="card allCards"
+            color="#080808"
+            position="1.7 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation="180 0 0"
+          >
+            <a-image
+              src="#naim"
+              material=""
+              geometry=""
+              scale="0.9 0.9 1"
+              rotation="90 90 0"
+              position="0 0.6 0"
+            ></a-image
+          >
+          <a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="90 90 0"
+          position="0.01227 -0.85156 0"
+        ></a-image
+      ></a-box>
+        </a-entity>
+
+        <a-entity id="second line" position="0 0 -1.2">
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="-5.1 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.600 0"
+        ></a-image
+      ></a-box>
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="-3.4 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.6 0"
+        ></a-image
+      ></a-box>
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="-1.7 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.6 0"
+        ></a-image
+      ></a-box>
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="0 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.6 0"
+        ></a-image
+      ></a-box>
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="1.7 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.6 0"
+        ></a-image
+      ></a-box>
+        </a-entity>
+
+        <a-entity id="third line" position="0 0 -2.4">
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="-5.1 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.6 0"
+        ></a-image
+      ></a-box>
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="-3.4 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.6 0"
+        ></a-image
+      ></a-box>
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="-1.7 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.6 0"
+        ></a-image
+      ></a-box>
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="0 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.6 0"
+        ></a-image
+      ></a-box>
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="1.7 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.6 0"
+        ></a-image
+      ></a-box>
+        </a-entity>
+
+        <a-entity id="fourth line" position="0 0 -3.6">
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="-5.1 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.6 0"
+        ></a-image
+      ></a-box>
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="-3.4 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.6 0"
+        ></a-image
+      ></a-box>
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="-1.7 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.6 0"
+        ></a-image
+      ></a-box>
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="0 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.6 0"
+        ></a-image
+      ></a-box>
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="1.7 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.6 0"
+        ></a-image
+      ></a-box>
+        </a-entity>
+
+        <a-entity id="fifth line" position="0 0 1.2">
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="-5.1 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.6 0"
+        ></a-image
+      ></a-box>
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="-3.4 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.6 0"
+        ></a-image
+      ></a-box>
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="-1.7 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.6 0"
+        ></a-image
+      ></a-box>
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="0 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.6 0"
+        ></a-image
+      ></a-box>
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="1.7 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.6 0"
+        ></a-image
+      ></a-box>
+        </a-entity>
+
+        <a-entity id="sixth line" position="0 0 2.4">
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="-5.1 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.6 0"
+        ></a-image
+      ></a-box>
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="-3.4 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.6 0"
+        ></a-image
+      ></a-box>
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="-1.7 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.6 0"
+        ></a-image
+      ></a-box>
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="0 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.6 0"
+        ></a-image
+      ></a-box>
+          <a-box
+            class="allCards"
+            color="#080808"
+            position="1.7 0 -2"
+            material=""
+            geometry=""
+            scale="1.5 0.05 1"
+            rotation=""
+          ><a-image
+          src="#morbiket"
+          material=""
+          geometry=""
+          scale="1.3 0.5 1"
+          rotation="-90 -90 0"
+          position="0.01227 0.6 0"
+        ></a-image
+      ></a-box>
+        </a-entity>
+      </a-entity>
     </a-scene>
-
-    <div class="videoControls">
-      <button id="soundButton">
-        <i id="musicButton" class="material-icons">music_note</i>
-      </button>
+    <div class="videoControls" style="display: block">
+     
       <button id="previousButton">
         <i id="previousButton" class="material-icons">skip_previous</i>
       </button>
@@ -143,5 +637,159 @@
         <i id="nextButtonVideo" class="material-icons"> skip_next</i>
       </button>
     </div>
+    <script>
+      const scene = document.querySelector("a-scene");
+      const backgroundScene = document.getElementById("backgroundScene");
+      const cardsGroup = document.getElementById("CardsGroup1");
+      const nextCard = document.getElementById("nextButtonVideo");
+      const previousCard = document.getElementById("previousButton");
+      const camera = document.getElementById("camera");
+      const cards = document.getElementsByClassName("card");
+      const allCards = document.getElementsByClassName("allCards");
+      const colors = [
+        "#1A1123",
+        "#63CDC2",
+        "#DC1E4D",
+        "#B0ACA6",
+        "#070707",
+        "#402A5C",
+        "#001E34",
+        "#273B30",
+      ];
+
+      const brigthColors = [
+        "#E73A53",
+        "#15100F",
+        "#57AAB3",
+        "#576C5B",
+        "#F91212",
+        "#DEC5A5",
+        "#D4D4D4",
+        "#D8D7C9",
+      ];
+
+      cards[1].setAttribute("rotation", "0 0 0");
+      cards[2].setAttribute("rotation", "0 0 0");
+      cards[3].setAttribute("rotation", "0 0 0");
+
+      for (let i = 1; i < 10; i++) {
+        // Create a new copy of the cardsGroup
+        const newCardsGroup = cardsGroup.cloneNode(true);
+
+        // Modify the position of the newCardsGroup
+        newCardsGroup.setAttribute("position", { x: i * 8.5, y: 0, z: 0 });
+
+        // Append the newCardsGroup to the scene
+        scene.appendChild(newCardsGroup);
+      }
+      for (let i = 1; i < 10; i++) {
+        // Create a new copy of the cardsGroup
+        const newCardsGroup = cardsGroup.cloneNode(true);
+
+        // Modify the position of the newCardsGroup
+        newCardsGroup.setAttribute("position", { x: i * -8.5, y: 0, z: 0 });
+
+        // Append the newCardsGroup to the scene
+        scene.appendChild(newCardsGroup);
+      }
+
+      let xValue = -5.4;
+      let cardToShow = 4;
+      let cardToHide = 1;
+      let clickspreviousCard = 0;
+      let clicksnextCard = 0;
+      let x = 0;
+      let previousColor;
+
+      nextCard.addEventListener("click", () => {
+        let colorIndex = Math.floor(Math.random() * colors.length);
+        if (previousColor == colors[colorIndex]) {
+          colorIndex = Math.floor(Math.random() * colors.length);
+        }
+        backgroundScene.setAttribute("color", brigthColors[colorIndex]);
+        for (let i = 0; i < allCards.length; i++) {
+          allCards[i].setAttribute("color", colors[colorIndex]);
+        }
+
+        clicksnextCard++;
+        if (clicksnextCard == 1 && clickspreviousCard != 0) {
+          cardToShow++;
+          cardToHide++;
+          clickspreviousCard = 0;
+        }
+        xValue = xValue + 1.7;
+        camera.setAttribute(
+          "animation",
+          `property: position; to: ${xValue} 3.531 1.441;  easing: linear; dur:500 `
+        );
+
+        cards[cardToShow].setAttribute(
+          "animation",
+          `property: rotation; to: 0 0 0;easing: linear; dur:1000 `
+        );
+
+        cards[cardToHide].setAttribute(
+          "animation",
+          `property: rotation; to: 180 0 0; easing: linear;dur:1000 `
+        );
+        cardToShow++;
+        cardToHide++;
+        previousColor = colors[colorIndex];
+      });
+
+      previousCard.addEventListener("click", () => {
+        let colorIndex = Math.floor(Math.random() * colors.length);
+        if (previousColor == colors[colorIndex]) {
+          colorIndex = Math.floor(Math.random() * colors.length);
+        }
+
+        backgroundScene.setAttribute("color", brigthColors[colorIndex]);
+
+        for (let i = 0; i < allCards.length; i++) {
+          allCards[i].setAttribute("color", colors[colorIndex]);
+        }
+        clickspreviousCard++;
+        if (clickspreviousCard == 1 && clicksnextCard != 0) {
+          cardToShow--;
+          cardToHide--;
+          clicksnextCard = 0;
+        }
+        xValue = xValue - 1.4;
+
+        camera.setAttribute(
+          "animation",
+          `property: position; to: ${(xValue =
+            xValue - 0.3)} 3.531 1.441; dur: 500; easing: linear `
+        );
+
+        console.log(cardToHide);
+        console.log(cardToShow);
+
+        cards[cardToHide].setAttribute(
+          "animation",
+          `property: rotation; to: 0 0 0;easing: linear; dur:1000 `
+        );
+
+        cards[cardToShow].setAttribute(
+          "animation",
+          `property: rotation; to: 180 0 0; easing: linear;dur:1000 `
+        );
+        if (cardToHide == 0) {
+          cardToHide = 55;
+        }
+
+        if (cardToShow == 0) {
+          cardToShow = 55;
+        }
+
+        if (cardToHide >= 50 && cardToHide % 5 == 0 && cardToShow > 4) {
+          cardToHide = cardToHide + 10;
+        }
+
+        cardToShow--;
+        cardToHide--;
+        previousColor = colors[colorIndex];
+      });
+    </script>
   </body>
 </html>
